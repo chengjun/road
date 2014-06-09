@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Jonathan's Road</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+	<script type="text/javascript" src="js/functions_dev.js"></script>
+</head>
+
+<!--
+<audio src="type.mp3" controls autoplay loop hidden>
+<p>Your browser does not support the audio element.</p>
+</audio>
+-->
+<!--back ground type sound-->
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<audio id="sound"> <!--back ground type sound-->
+				<source src="media/type.ogg" type="audio/ogg" />
+				<source src="media/type.mp3" type="audio/mpeg" />
+				Your browser does not support HTML5 audio.
+			</audio>
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* To Professor Jonathan J.H. Zhu:</span><br />
+				<span class="space"/><span class="comments">* Happy birthday！</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy u = <span class="keyword">new</span> Boy(<span class="string">"Jonathan J.H. Zhu"</span>);<br />
+				<span class="comments">// In the July of 1954, a boy was born in Shanghai, China. </span><br />
+				u.grow_up();<br />
+				<span class="comments">// You entered Fudan University and got your B.A in 1982. </span><br />
+				u.got(B.A);<br />
+				<span class="comments">// After 3 years, you got your M.A. from Fudan University</span><br />
+				u.got(M.A);<br />
+				u.taughtInUniversity(Fudan, 1984-1986);<br />
+				<span class="comments">// In 1986, you got a Ph.D fellowship from Indiana University.</span><br />
+				u.studied(Chinese Media);<br />
+				<span class="comments">// In 1990, you graduate from Indiana University.</span><br />
+				u.got(Ph.D);<br />
+				<span class="comments">// And you found a teaching position in University of Connecticut.</span><br />
+				u.taughtInUniversity(Connecticut, 1990-1999);<br />
+				u.studied(Agenda-Setting);<br />
+				<span class="comments">// After you got the tenured job as an associate professor in 1999,</span><br />
+				<span class="comments">// You came back to Hong Kong.</span><br />
+				<span class="keyword">boolean</span> comeBack = <span class="keyword">true</span>;<br />
+				<span class="keyword">while</span> (comeBack) {<br />
+				<span class="placeholder"/>u.taughtInUniversity(CityU, 1999-Now);<br />
+				<span class="placeholder"/><span class="comments">// You became a full professor in 2001.</span><br />
+				<span class="placeholder"/><span class="comments">// You taught research methods in Mainland China.</span><br />
+				<span class="placeholder"/>u.founded(Web Mining Lab);<br />
+				<span class="placeholder"/>u.studied(Internet, Complex Networks, Big Data, Computational Social Science, et al.);<br />
+				}<br />
+				<span class="comments">//This is a road which strongly inspires young researchers.</span><br />
+				<span class="comments">//On your 60th birthday, we send you our best wishes.</span><br />
+				u.liveHappily(forever and ever);<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						Happy Birthday!
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						<br/>
+						<div class="signature"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+		Inspired by <a href="http://www.openrise.com/lab/FlowerPower/">FlowerPower</a>,<a href="https://twitter.com/jackrugile">@jackrugile</a>,and <a href='http://hackerzhou.me'>hackerzhou</a><br />
+			Copyright © 2014 <a href='http://chengjun.github.io'>Chengjun Wang</a>
+		</div>
+	</div>
+		<div style="position:absolute;left:0;top:0">
+		<canvas id="canvas">Canvas is not supported in your browser.</canvas>
+		</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(1954, 7, 6);
+		together.setHours(0);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+    <script type="text/javascript" src="js/fireworks.js"></script>
+</body>
+</html>
